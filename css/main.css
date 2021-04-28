@@ -1,0 +1,480 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+
+/* reset */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+button, input {
+    outline: none;
+    border: none;
+}
+
+/* common */
+.wrap {
+    font: 15px "Noto Sans KR", sans-serif;    
+}
+.hide{
+    display: none !important;
+}
+
+/* header */
+header {
+    width: 100%;
+    /* background: red; */
+    position: fixed;
+    z-index: 20;
+}
+header.on{
+    background: #fff;
+    border-bottom: 1px solid #2c2c2c;
+}
+
+header .inner-header {
+    /* background: orange; */
+    width: 92%;
+    height: 120px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .inner-header .logo {
+    /* background: greenyellow;  */
+    flex: 1;
+}
+header .inner-header .logo a {
+    display: block; 
+    width: 100%;   
+}
+header .inner-header .logo a img {    
+    height: 40px;
+}
+header .inner-header .intro-text {
+    /* background: tomato; */
+    display: flex;
+    /* flex: 4; */
+    color: #fff;
+    font-size: 25px;
+}
+header .inner-header .intro-text li{
+    margin-right: 100px;
+}
+header .inner-header .intro-text li:hover{
+    color: #666;
+    text-shadow: rgba(0, 0, 0, 0.7);
+}
+header .inner-header .menu-open {
+    /* background: skyblue; */
+    flex: 1;
+
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header .inner-header .menu-open .lnr-menu {
+    display: block;
+    font-size: 33px;
+    margin-left: 15px;
+}
+
+
+/* header navigation bar */
+header .gnb{
+    background: #fff;
+    height: 100vh;
+    color: #666;
+    font-size: 40px;
+    padding: 70px 100px;
+    box-sizing: border-box;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    display: flex;   
+    flex-flow: row-reverse; /* X의 위치 반대로 */
+
+    right: -100%;
+    transition: 0.6s;
+}
+header .gnb.on{
+    right: 0;
+}
+header .gnb .close{
+    display: block;
+    color: #666;
+
+}
+header .gnb ul{
+    margin-right: 200px;
+}
+header .gnb ul li{
+    font-weight: 700;
+    line-height: 1.7;
+}
+header .gnb ul li:first-child,
+header .gnb ul li:hover{
+    color: #666;
+}
+
+
+/* section visual */
+section.visual{
+    margin-bottom: 300px;
+}
+section.visual .slide li {
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+section.visual .slide li img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+section.visual .slide li .txt{
+    /* background: blue; */
+    position: absolute;
+    color: #fff;
+    font-size: 18px;
+
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    
+}
+section.visual .slide li .txt h3{
+    font-size: 64px;
+    margin: 30px 0;
+    line-height: 1.3;
+}
+section.visual .slide li .txt a{
+    display: inline-block;
+    /* background: yellow; */
+}
+section.visual .slide li .txt a span{
+    font-size: 14px;
+    margin-left: 5px;
+}
+section.visual .slide li .scroll{
+    position: absolute;
+    
+    left: 50px;
+    bottom: 10%;
+
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+
+    transform: rotate(-90deg);
+}
+
+/* slick 이전 다음 버튼 스타일 변경 */
+.slick-arrow {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    background: #fff;
+    border: none;
+    z-index: 5;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+
+.slick-arrow.slick-prev {
+    bottom: 60px;
+}
+
+.slick-arrow::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #666;
+    font-size: 20px;
+    left: 0;
+    top: 0;
+    text-indent: 0;
+    font-weight: 300;
+}
+
+.slick-arrow.slick-next::after {
+    content: '>';
+}
+.slick-arrow.slick-prev::after {
+    content: '<';
+}
+
+.slick-arrow:hover {
+    background: #fff;
+    transform: all .5s;
+}
+
+.slick-arrow:hover::after {
+    font-size: 28px;
+    color: #666;
+    transition: all .2s;
+}
+
+.slick-active .txt p {
+    animation: txt1 .8s;
+}
+@keyframes txt1 {
+    0% {opacity: 0; transform: rotateX(180deg) translateY(-150px); }
+    20% {opacity: 0; transform: rotateX(180deg) translateY(-150px); }
+    100% {opacity: 1; transform: rotateX(0) translateY(0); }
+}
+
+.slick-active .txt a {
+    animation: txt2 .8s;
+}
+@keyframes txt2 {
+    0% {opacity: 0; transform: rotateX(180deg) translateY(150px); }
+    20% {opacity: 0; transform: rotateX(180deg) translateY(150px); }
+    100% {opacity: 1; transform: rotateX(0) translateY(0); }
+}
+
+.slick-active .txt h3 {
+    animation: txt3 .7s;
+}
+@keyframes txt3 {
+    0% {transform: translateX(0); }
+    40% {transform: translateX(-50px); }
+    100% {transform: translateX(0); }
+}
+
+.slick-active .scroll {
+    animation: scroll 1s;
+}
+@keyframes scroll {
+    0% {opacity: 0; left: -100px; }
+    30% {opacity: 0; left: -100px; }
+    100% {opacity: 1; left: 50px; }
+}
+
+section.visual .slick-active img {
+    animation: img 1s;
+}
+@keyframes img {
+    0% {opacity: 0; left: -80px; transform: scale(0.95) }
+    100% {opacity: 1; left: 0; }
+}
+
+/* section sns */
+section.sns {
+    margin-bottom: 500px;
+}
+section.sns .title{
+    text-align: center;
+    font-size: 60px;
+    font-weight: 700;
+    color: #666;
+}
+section.sns .title p{
+    font-size: 20px;
+    color: #999;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+section.sns ul {
+    width: 74%;
+    margin: 50px auto;
+}
+
+section.sns ul li {
+    float: left;
+    width: 32%;
+    margin-right: 2%;
+}
+section.sns ul li:last-child {
+    margin-right: 0;
+}
+
+section.sns ul li a {
+    display: block;
+}
+
+section.sns ul li a .img-box {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+section.sns ul li a .img-box::before {
+    content: '';
+    width: 0;
+    height: 100%;
+    background: rgba(66, 66, 66, 0.623);
+    position: absolute;
+    left: 0;
+    top: 0;    
+    transition: 0.5s;
+}
+
+section.sns ul li a:hover .img-box::before {
+    width: 100%;
+}
+
+section.sns ul li a .img-box::after {
+    content: 'BLOG';
+    font: 15px "Exo 2", sans-serif;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    color: #fff;
+    padding: 5px 30px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.7s;
+}
+
+section.sns ul li a:hover .img-box::after {
+    opacity: 1;
+}
+
+section.sns ul li a .img-box img {
+    width: 100%;
+}
+
+section.sns ul li a .bottom {
+    padding: 20px 0 20px 30px;
+    box-sizing: border-box;
+}
+section.sns ul li a .bottom p {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+section.sns ul li a .bottom p.color {
+    color: #79797a;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+
+/* section contents */
+section.contents{
+    background: #fff; 
+    padding: 120px 0;   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* section.contents > .contact */
+section.contents .contact{
+    background: url(../img/contact.jpg) no-repeat center/cover fixed;
+    width: 90%;
+    height: 500px;
+    padding: 220px 0;
+    color: #fff;
+}
+section.contents .contact .inner{
+    width: 1170px;
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.1;
+}
+section.contents .contact .inner h3{
+    font-weight: 400;
+}
+section.contents .contact .inner p.tel{
+    font-size: 55px;
+    font-weight: 700;
+    margin: 50px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer */
+footer{
+    background: #1b1b1b;
+    color: #666;
+    padding: 0 80px 80px;
+}
+footer ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+footer ul li:nth-child(2){
+    color: #666;
+    font-size: 16px;
+    line-height: 2;
+}
+footer ul li:nth-child(2) span{
+    font-weight: 700;
+    margin-right: 10px;
+    color: #666;
+}
+footer ul li:nth-child(3){
+    font-weight: 700;
+}
+footer .go-top{
+    color: #666;
+    font-size: 50px;
+    position: fixed;
+    right: 50px;
+    bottom: 60px;
+    z-index: 100;
+}
+
